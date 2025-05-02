@@ -1,0 +1,327 @@
+@import url("reset.css");
+
+:root {
+  --primary: #33a8db;
+  --primary-dark: #1472b7;
+  --secondary: #252525;
+  --text: #ffffff;
+  --bg: #000000;
+  --shadow: rgba(0, 0, 0, 0.7);
+  --overlay-light: rgba(49, 168, 221, 0.2);
+  --overlay-dark: rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  border-radius: 3px;
+}
+
+p {
+  color: var(--text);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+section {
+  margin: 6.25rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Banner Section */
+.banner {
+  background-image: linear-gradient(
+      var(--overlay-dark),
+      var(--overlay-light),
+      var(--overlay-dark)
+    ),
+    url("../images/banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 800px;
+  padding-top: 60px;
+  border-bottom: 1px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-content {
+  color: var(--text);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1.5rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.banner .logo {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  padding: 1rem;
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 20px rgba(51, 168, 219, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.banner .logo:hover {
+  transform: scale(1.05);
+}
+
+.banner .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.banner button {
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  background-color: transparent;
+  border: 2px solid;
+  border-image: linear-gradient(var(--primary), var(--primary-dark)) 1;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(51, 168, 219, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.banner button:hover {
+  color: var(--text);
+  background: linear-gradient(var(--primary), var(--primary-dark));
+  box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+}
+
+.banner button:hover::before {
+  left: 100%;
+}
+
+/* Course Content */
+#course-content {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.modules-list {
+  margin: 1.5rem 0;
+}
+
+.module {
+  color: var(--text);
+  width: 100%;
+  max-width: 530px;
+  margin: 0 auto 1.5rem;
+  border: 1px solid var(--primary);
+  background-color: var(--secondary);
+  padding: 1rem;
+  border-radius: 100px;
+  box-shadow: inset -5px 6px 8px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.module:hover {
+  background-color: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(51, 168, 219, 0.3);
+}
+
+.module span {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Transform World Section */
+#transform-world {
+  height: 70vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/woman-code.png");
+  background-attachment: fixed;
+  border-top: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+#transform-world p {
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  text-transform: lowercase;
+  max-width: 250px;
+  text-shadow: 3px 2px var(--primary);
+  line-height: 1.2;
+}
+
+/* Professional Challenges */
+#professional-challenges {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+#professional-challenges img {
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+  padding: 3.75rem 0;
+  text-align: center;
+  background-image: linear-gradient(
+    rgba(50, 168, 219, 0),
+    rgba(50, 168, 219, 0.2)
+  );
+  border-top: 1px solid var(--primary);
+}
+
+.dio-logo {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1.5rem;
+}
+
+footer a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .banner h1 {
+    font-size: 2rem;
+  }
+
+  .banner p {
+    font-size: 1.1rem;
+  }
+
+  .banner .logo {
+    width: 200px;
+    height: 200px;
+  }
+
+  section {
+    margin: 4rem auto;
+  }
+
+  #transform-world p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
